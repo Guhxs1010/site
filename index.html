@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Refeitório</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .cabecalho {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        padding: 10px;
+      }
+
+      .logo img {
+        width: 40px;
+      }
+
+      .titulo {
+        font-size: 30px;
+        color: red;
+        margin-left: 10px;
+        font-family: "Chau Philomene One", sans-serif;
+      }
+
+      .banner {
+        width: 100%;
+        height: 60vh;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5%;
+        background: url("img/fundo.png") no-repeat center center / cover;
+      }
+
+      .banner .drey {
+        position: relative;
+        width: 390px;
+        z-index: 1;
+        top: 5%;
+        left: 12%;
+      }
+
+      .texto {
+        position: relative;
+        z-index: 2;
+        color: red;
+        font-size: 24px;
+        text-align: left;
+        right: 10%;
+        max-width: 50%;
+      }
+
+      .texto h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        font-family: "DM Sans", sans-serif;
+        width: 450px;
+      }
+
+      .texto p {
+        font-size: 18px;
+        line-height: 1.5;
+        width: 400px;
+        font-family: "Inter", sans-serif;
+      }
+
+      .meio {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .botoes {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .botoes button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 18px;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        width: 250px;
+        height: 70px;
+      }
+
+      .botoes .um {
+        background-color: rgba(255, 49, 49, 1);
+      }
+
+      .botoes .dois {
+        background-color: rgba(225, 148, 148, 1);
+      }
+
+      .botoes .dois i {
+        margin-left: 10px; /* Ajuste o espaçamento do ícone */
+      }
+
+      .botoes button:hover {
+        opacity: 0.9;
+        transform: scale(1.05);
+        transition: all 0.2s ease-in-out;
+      }
+
+      .caixa {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+        background-color: rgba(255, 0, 0, 1);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 0, 0, 1);
+        box-shadow: 0px 4px 12px rgba(254, 241, 241, 1); /* Desfalque glausiano mais vermelho */
+        padding: 20px;
+        position: relative;
+        width: 900px;
+        height: 500px;
+      }
+
+      .caixa h2 {
+        font-size: 30px;
+        margin-bottom: 10px;
+        font-family: "DM Sans", sans-serif;
+        width: 400px;
+      }
+
+      .caixa p {
+        font-size: 15px;
+        line-height: 1.5;
+        width: 400px;
+        font-family: "Inter", sans-serif;
+      }
+
+      .caixa .texto {
+        top: 20%;
+        color: white;
+        left: 2%;
+      }
+
+      .meio {
+        display: flex;
+        background-color: rgba(254, 241, 241, 1);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 0, 0, 1);
+        width: 100%;
+        height: 265vh;
+        margin-top: -6px;
+        position: absolute;
+        z-index: 2;
+      }
+
+      .integrantes {
+        margin-top: 10%;
+      }
+
+      .caixas {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20%;
+      }
+
+      .integrantes .texto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+      }
+
+      .integrantes h2 {
+        font-size: 46px;
+        margin-bottom: 10px;
+        font-family: "Chau Philomene One", sans-serif;
+        width: 100%;
+        text-align: center;
+      }
+
+      .opa1,
+      .opa2,
+      .opa3,
+      .opa4,
+      .opa5,
+      .opa6 {
+        background-color: rgba(225, 148, 148, 1);
+        border-radius: 10px;
+        margin: 15px;
+      }
+
+      /* Estilos do footer */
+      footer {
+        background-color: #e53935;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 5%;
+        align-items: center;
+        position: absolute;
+        z-index: 3;
+        margin-top: 130%;
+        width: 100%;
+      }
+
+      footer .logo-footer {
+        display: flex;
+        align-items: center;
+      }
+
+      footer .logo-footer img {
+        width: 40px;
+        margin-right: 10px;
+      }
+
+      footer .logo-footer span {
+        font-family: "Chau Philomene One", sans-serif;
+        font-size: 24px;
+      }
+
+      footer .links {
+        display: flex;
+        gap: 30px;
+        font-family: "DM Sans", sans-serif;
+      }
+
+      footer .links a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        transition: 0.3s;
+      }
+
+      footer .links a:hover {
+        text-decoration: underline;
+      }
+
+      footer .social-icons {
+        display: flex;
+        gap: 20px;
+      }
+
+      footer .social-icons a {
+        font-size: 20px;
+        color: white;
+      }
+
+      footer .social-icons a:hover {
+        opacity: 0.7;
+      }
+      /* Estilos do modal */
+.modal {
+  display: none; /* Modal inicialmente invisível */
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo com transparência */
+  overflow: auto; /* Permitirá rolar se o conteúdo for maior que a tela */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-family: "DM Sans", sans-serif;
+}
+
+.modal-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.qr-code img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.modal-content a {
+  font-size: 18px;
+  color: #e53935;
+  text-decoration: none;
+  font-family: "DM Sans", sans-serif;
+}
+
+.modal-content a:hover {
+  text-decoration: underline;
+}
+
+.close {
+  background-color: #e53935;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.close:hover {
+  background-color: #c1351d;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="cabecalho">
+      <div class="logo">
+        <img src="img/refeitorio.png" alt="Logo" />
+      </div>
+      <div class="text-logo">
+        <h1 class="titulo">Refeitório</h1>
+      </div>
+    </div>
+
+    <div class="banner">
+      <img src="img/drey.png" alt="Drey" class="drey" />
+      <div class="texto">
+        <h2>BAIXE O APLICATIVO DO REFEITÓRIO DO SESI PARA ANDROID</h2>
+        <p>
+          Descubra o cardápio do dia e fique por dentro das atualizações da
+          nutrição. Tudo ao alcance das suas mãos, onde e quando precisar.
+        </p>
+      </div>
+    </div>
+
+    <div class="meio">
+      <div class="botoes">
+        <button class="um" id="downloadButton">BAIXAR PARA ANDROID</button>
+        <button class="dois">
+          VER MAIS <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+      
+      <!-- Modal -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <h2>Baixe o Aplicativo</h2>
+          <p>Use o QR Code abaixo ou clique no link para baixar o aplicativo para Android:</p>
+          <div class="qr-code">
+            <img src="img/qrcodefalso.png" alt="QR Code" />
+          </div>
+          <p><a href="https://play.google.com/store/apps/details?id=com.sesi.refeitorio" target="_blank">Clique aqui para baixar na Play Store</a></p>
+          <button class="close" id="closeModal">Fechar</button>
+        </div>
+      </div>
+
+      <div class="caixa">
+        <div class="texto">
+          <h2>
+            Aplicativo Refeitório SESI: Praticidade e Interatividade no Seu Dia
+            a Dia
+          </h2>
+          <p>
+            O "Refeitório SESI" é um aplicativo Android que facilita o acesso ao
+            cardápio diário e às atualizações da nutricionista. Com um design
+            voltado para a identidade da rede SESI, ele também permite interação
+            direta entre os usuários e a nutricionista. Desenvolvido por alunos
+            do SESI e SENAI, o app oferece uma experiência prática e inovadora
+            para a comunidade.
+          </p>
+        </div>
+        <div class="imagem">
+          <img
+            style="width: 350px; margin-top: 10%"
+            src="img/celular.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="integrantes">
+        <div class="texto">
+          <h2>Integrantes</h2>
+        </div>
+        <div class="caixas">
+          <div class="opa1">
+            <img style="width: 200px" src="img/1.png" alt="" />
+          </div>
+          <div class="opa2">
+            <img style="width: 200px" src="img/2.png" alt="" />
+          </div>
+          <div class="opa3">
+            <img style="width: 200px" src="img/3.png" alt="" />
+          </div>
+        </div>
+        <div class="caixas">
+          <div class="opa4">
+            <img style="width: 200px" src="img/4.png" alt="" />
+          </div>
+          <div class="opa5">
+            <img style="width: 200px" src="img/5.png" alt="" />
+          </div>
+          <div class="opa6">
+            <img style="width: 200px" src="img/6.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="logo-footer">
+        <img style="width: 100px" src="img/refeitorio2.png" alt="Logo" />
+        <span>Refeitório ©2024</span>
+      </div>
+
+      <div class="links">
+        <a href="#">Compania</a>
+        <a href="#">Sobre nós</a>
+        <a href="#">SESI</a>
+        <a href="#">SENAI</a>
+        <a href="#">Mais informações</a>
+        <a href="#">Termos & Condições</a>
+        <a href="#">Política de Privacidade</a>
+      </div>
+
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </footer>
+    <script>
+      const modal = document.getElementById("myModal");
+      const downloadButton = document.getElementById("downloadButton");
+      const closeModal = document.getElementById("closeModal");
+    
+      // Abrir o modal ao clicar no botão de "Baixar para Android"
+      downloadButton.onclick = function() {
+        modal.style.display = "block";
+      }
+    
+      // Fechar o modal ao clicar no botão "Fechar"
+      closeModal.onclick = function() {
+        modal.style.display = "none";
+      }
+    
+      // Fechar o modal ao clicar fora da caixa do modal
+      window.onclick = function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
